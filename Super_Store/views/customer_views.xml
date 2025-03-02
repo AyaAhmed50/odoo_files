@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_website_customers_tree" model="ir.ui.view">
+        <field name="name">superstore.customer.tree</field>
+        <field name="model">superstore.customer</field>
+        <field name="arch" type="xml">
+            <tree string="Customers">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="gender"/>
+                <field name="birth_date"/>
+                <field name="address"/>
+                <field name="loyalty_points"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_website_customers_form" model="ir.ui.view">
+        <field name="name">superstore.customer.form</field>
+        <field name="model">superstore.customer</field>
+        <field name="arch" type="xml">
+            <form string="Customers">
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="gender"/>
+                        <field name="birth_date"/>
+                        <field name="address"/>
+                    </group>
+                    <group>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="loyalty_points"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_website_products" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">superstore.customer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Click "Create" to add a new customer.</p>
+        </field>
+    </record>
+</odoo>

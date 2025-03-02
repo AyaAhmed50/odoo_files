@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_website_customer" name="MWC"/>
+    <menuitem id="menu_frontdesk" name="Fron Desk" parent="menu_website_customer"/>
+    <menuitem id="menu_customers" name="patients" parent="menu_frontdesk" action='action_website_products'/>
+</odoo>
