@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_website_promos_tree" model="ir.ui.view">
+        <field name="name">superstore.promos.tree</field>
+        <field name="model">superstore.promos</field>
+        <field name="arch" type="xml">
+            <tree string="Promos">
+                <field name="promo_code" />
+                <field name="date_created"/>
+                <field name="customer_id"/>
+                <field name="discount"/>
+                <field name="promo_description" optional='show'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_website_promos_form" model="ir.ui.view">
+        <field name="name">superstore.promos.form</field>
+        <field name="model">superstore.promos</field>
+        <field name="arch" type="xml">
+            <form string="Customers">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="discount"/>
+                            <field name="create_date" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="promo_code" readonly='True'/>
+                            <field name="promo_description" />
+                        </group>
+                    </group>
+                </sheet>
+                <!-- Move Chatter outside the <sheet> to place it below -->
+                <div class="oe_chatter" style="clear: both;">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="action_website_promos" model="ir.actions.act_window">
+        <field name="name">Promos</field>
+        <field name="res_model">superstore.promos</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Add a new Promocode
+              </p>
+        </field>
+    </record>
+</odoo>

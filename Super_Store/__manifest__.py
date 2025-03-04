@@ -7,8 +7,10 @@
     "depends": ['mail'],
     "data": [
         'security/ir.model.access.csv',
+        'data/Sequence.xml',
         'views/customer_views.xml',
         'views/customer_readonly_views.xml',
+        'views/customer_promos_views.xml',
         'views/menu.xml',
         
     ],
