@@ -4,7 +4,7 @@
     "license": "LGPL-3",
     "category": "Website",
     "version": "17.0.1.0.0",
-    "depends": ['base'],
+    "depends": ['mail'],
     "data": [
         'security/ir.model.access.csv',
         'views/customer_views.xml',

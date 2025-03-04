@@ -9,7 +9,7 @@
                 <field name="email"/>
                 <field name="phone"/>
                 <field name="gender"/>
-                <field name="birth_date"/>
+                <field name="birth_date" optional = 'show'/>
                 <field name="address" optional='hide'/>
                 <field name="loyalty_points"/>
             </tree>
@@ -27,7 +27,7 @@
                             <field name="name"/>
                             <field name="gender"/>
                             <field name="birth_date"/>
-                            <field name="address" optional ='hide'/>
+                            <field name="address" optional="hide"/>
                         </group>
                         <group>
                             <field name="email"/>
@@ -36,6 +36,11 @@
                         </group>
                     </group>
                 </sheet>
+                <!-- Move Chatter outside the <sheet> to place it below -->
+                <div class="oe_chatter" style="clear: both;">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>
@@ -45,8 +50,5 @@
         <field name="name">Customers</field>
         <field name="res_model">superstore.customer</field>
         <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p>Click "Create" to add a new customer.</p>
-        </field>
     </record>
 </odoo>
