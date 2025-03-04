@@ -10,6 +10,7 @@
                 <field name="customer_id"/>
                 <field name="discount"/>
                 <field name="promo_description" optional='show'/>
+                <field name='state'/>
             </tree>
         </field>
     </record>
@@ -19,6 +20,13 @@
         <field name="model">superstore.promos</field>
         <field name="arch" type="xml">
             <form string="Customers">
+                <header>
+                    <!-- <button name='action_ongoing' type='object' string='ongoing'/>
+                    <button name='action_expired' type='object' string='expired'/>
+                    <button name='action_upcoming' type='object' string='upcoming'/>
+                    <button name='action_applied' type='object' string='applied' invisible="state != 'ongoing'"/> -->
+                    <field name='state' widget = 'statusbar' options="{'clickable':'1'}" statusbar_visible="ongoin, expired, upcoming, applied"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -33,7 +41,7 @@
                     </group>
                 </sheet>
                 <!-- Move Chatter outside the <sheet> to place it below -->
-                <div class="oe_chatter" style="clear: both;">
+                <div class="oe_chatter">
                     <field name="message_follower_ids" groups="base.group_user"/>
                     <field name="message_ids"/>
                 </div>

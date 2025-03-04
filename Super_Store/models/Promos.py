@@ -16,7 +16,10 @@ class StorePromos(models.Model):
     customer_id = fields.Many2one('superstore.customer', string='Customer')
     promo_description = fields.Char(string='Description')
     discount = fields.Char(string='Discount')
-    
+    state = fields.Selection(
+        [('applied','Coupon Applied'), ('expired','Expired'),
+         ('upcoming','Upcoming'),('ongoing','Ongoing')], default = 'ongoing', tracking=True
+    )
     
     @api.model_create_multi
     def create(self, vals_list):
@@ -24,3 +27,8 @@ class StorePromos(models.Model):
             if not vals.get('promo_code') or vals['promo_code'] == 'New':
                 vals['promo_code'] = self.env['ir.sequence'].next_by_code('superstore.promos')
         return super().create(vals_list)
+    
+    # for me clickable option is more efficient
+    # def action_ongoing(self):
+    #     for rec in self:
+    #         rec.self = 'ongoing'
