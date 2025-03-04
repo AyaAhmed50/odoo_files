@@ -21,7 +21,7 @@ class StorePromos(models.Model):
          ('upcoming','Upcoming'),('ongoing','Ongoing')], default = 'ongoing', tracking=True
     )
     
-    @api.model_create_multi
+    @api.model_create_multi # for like ID for the code
     def create(self, vals_list):
         for vals in vals_list:
             if not vals.get('promo_code') or vals['promo_code'] == 'New':
