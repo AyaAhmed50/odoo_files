@@ -10,7 +10,7 @@
                 <field name="phone"/>
                 <field name="gender"/>
                 <field name="birth_date"/>
-                <field name="address"/>
+                <field name="address" optional='hide'/>
                 <field name="loyalty_points"/>
             </tree>
         </field>
@@ -21,19 +21,21 @@
         <field name="model">superstore.customer</field>
         <field name="arch" type="xml">
             <form string="Customers">
-                <group>
+                <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="gender"/>
-                        <field name="birth_date"/>
-                        <field name="address"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="address" optional ='hide'/>
+                        </group>
+                        <group>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="loyalty_points"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="email"/>
-                        <field name="phone"/>
-                        <field name="loyalty_points"/>
-                    </group>
-                </group>
+                </sheet>
             </form>
         </field>
     </record>
